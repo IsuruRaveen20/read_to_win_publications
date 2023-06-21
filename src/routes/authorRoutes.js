@@ -1,9 +1,14 @@
-const express = require('express');
-const route = express.Router();
-const authorController = require("../controllers/authorController");
+const express = require('express')
+
+//import Author Controller
+const authorController = require("../controllers/authorController")
+
+//router
+const router = require('express').Router()
+
 
 //Routes for authors
-Router.get('/', authorController, getAllAuthors);
-Router.post('/', authorController, createAuthor);
+router.post('/addAuthor', authorController.addAuthor)
+router.get('/allAuthors', authorController.getAllAuthors)
 
-module.exports = Router;
+module.exports = router;
