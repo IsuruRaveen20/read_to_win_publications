@@ -22,7 +22,7 @@ const sequelize = new Sequelize(
 
 sequelize.authenticate()
     .then(() => {
-        console.log('connected..')
+        console.log('Connected to the database successfully...')
     })
     .catch(err => {
         console.log('Error' + err)
@@ -33,7 +33,12 @@ const db = {}
 db.Sequelize = Sequelize
 db.sequelize = sequelize
 
+
 db.authors = require('./Author')(sequelize, DataTypes)
+db.books = require('./Book')(sequelize, DataTypes)
+
+db.authors.hasMany(db.books); // An author can have many books
+db.books.belongsTo(db.authors); // A book belongs to an author
 
 db.sequelize.sync({ force: false })
     .then(() => {
@@ -41,17 +46,6 @@ db.sequelize.sync({ force: false })
     })
 
 module.exports = db
-
-// 1 to Many Relation
-// db.authors.hasMany(db.books, {
-//     foreignKey: 'authorId',
-//     as: 'books'
-// });
-
-// db.books.belongsTo(db.authors, {
-//     foreignKey: 'authorId',
-//     as: 'author'
-// });
 
 
 
