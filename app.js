@@ -8,11 +8,11 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // routers
-const router = require('./routes/authorRouter')
+const router = require('./src/routes/authorRoutes')
 app.use('/api/authors', router)
 
 //port
-const PORT = process.env.PORT || 4045
+const PORT = process.env.PORT || 4000
 
 //server
 app.listen(PORT, () => {
