@@ -1,6 +1,6 @@
 const db = require("../models");
 
-const Author = db.authors;
+const Author = db.authors
 
 // Register Author
 const addAuthor = async (req, res) => {
@@ -12,16 +12,16 @@ const addAuthor = async (req, res) => {
       contactNo: req.body.contactNo,
     };
 
-    const author = await Author.create(info);
-    res.status(200).send(author);
-    console.log(author);
+    const author = await Author.create(info)
+    res.status(200).send(author)
+    console.log(author)
   } catch (error) {
     // Handle validation errors
     if (error.name === "SequelizeValidationError") {
       const errors = error.errors.map((err) => err.message);
-      res.status(400).send({ error: "Validation error", details: errors });
+      res.status(400).send({ error: "Validation error", details: errors })
     } else {
-      res.status(500).send({ error: "Internal server error" });
+      res.status(500).send({ error: "Internal server error" })
     }
   }
 };
@@ -29,10 +29,10 @@ const addAuthor = async (req, res) => {
 // Get all Authors
 const getAllAuthors = async (req, res) => {
   try {
-    let authors = await Author.findAll({});
-    res.status(200).send(authors);
+    let authors = await Author.findAll({})
+    res.status(200).send(authors)
   } catch (error) {
-    res.status(500).send({ error: "Internal server error" });
+    res.status(500).send({ error: "Internal server error" })
   }
 };
 
