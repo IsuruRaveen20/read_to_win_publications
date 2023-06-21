@@ -12,7 +12,7 @@ const router = require('./routes/authorRouter')
 app.use('/api/authors', router)
 
 //port
-const PORT = process.env.PORT || 8088
+const PORT = process.env.PORT || 4045
 
 //server
 app.listen(PORT, () => {

@@ -1,26 +1,25 @@
 const Author = require("../models/Author");
 
-//Controller actions for authors
-exports.getAllAuthors = async (req, res) => {
-    try {
-        const authors = await Author.findAll();
-        res.json(authors);
-    } catch (error) {
-        res.status(500).json({ error: 'Internal Server Error' });
+//Register Author
+const createAuthor = async (req, res) => {
+    let info = {
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        contactNo: req.body.contactNo,
     }
-};
 
-exports.createAuthor = async (req, res) => {
-    const { firstName, lastName, email, contactNo } = req.body;
-    try {
-        const author = await Author.create({
-            firstName,
-            lastName,
-            email,
-            contactNo,
-        });
-        res.status(201).json(author);
-    } catch (error) {
-        res.status(500).json({ error: 'Internal server error' });
-    }
-};
+    const author = await Author.create(info)
+    res.status(200).send(author)
+    console.log(author)
+}
+
+//Get all Authors
+const getAllAuthors = async (req, res) => {
+    let authors = await Author.findAll({})
+    res.status(200).send(authors)
+}
+
+
+
+
