@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: "First name is required."
         },
         is: {
-          args: /^[A-Za-z\s]+$/, // Allow letters and white spaces
+          args: /^[A-Za-z]+$/, // Allow letters only
           msg: "First name should only contain letters."
         }
       }
@@ -21,7 +21,7 @@ module.exports = (sequelize, DataTypes) => {
           msg: "Last name is required."
         },
         is: {
-          args: /^[A-Za-z\s]+$/, // Allow letters and white spaces
+          args: /^[A-Za-z]+$/, // Allow letters only
           msg: "Last name should only contain letters."
         }
       }

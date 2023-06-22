@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
                     msg: "Category is required."
                 },
                 is: {
-                    args: /^[A-Za-z\s]+$/, // Allow letters and white spaces
+                    args: /^[A-Za-z]+$/, // Allow letters only
                     msg: "Category should only contain letters.",
                 },
             },
@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
                     msg: "Title is required."
                 },
                 is: {
-                    args: /^[A-Za-z\s]+$/, // Allow letters and white spaces
+                    args: /^[A-Za-z]+$/, // Allow letters only
                     msg: "Title should only contain letters.",
                 },
             },

@@ -46,6 +46,7 @@ const getAllBooks = async (req, res) => {
   }
 };
 
+//Search a Book by ISBN NO
 const searchBookByISBN = async (req, res) => {
   const isbnNo = req.params.isbnNo;
   try {
@@ -99,5 +100,5 @@ module.exports = {
   addBook, // Register a Book endpoint
   getAllBooks, // Get all Books endpoint
   searchBookByISBN, //Search Books by ISBN endpoint
-  likeBook,
+  likeBook, //Like a Book endpoint
 };

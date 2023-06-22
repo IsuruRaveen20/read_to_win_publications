@@ -30,14 +30,16 @@ const addCategory = async (req, res) => {
 
 // Get all Categories
 const getAllCategories = async (req, res) => {
-
-    try {
-        let categories = await Category.findAll({});
-        res.status(200).send(categories);
-    } catch (error) {
-        res.status(500).send({ error: "Internal server error" });
-    }
+  try {
+    let categories = await Category.findAll({});
+    res.status(200).send(categories);
+    logger.info('Retrieved all categories');
+  } catch (error) {
+    logger.error('Failed to retrieve categories', { error: error.message });
+    res.status(500).send({ error: "Internal server error" });
+  }
 };
+
 
 module.exports = {
     addCategory, // Register Category endpoint
