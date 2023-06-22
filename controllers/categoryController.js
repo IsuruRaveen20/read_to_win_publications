@@ -1,6 +1,7 @@
 const db = require("../models");
+const logger = require('../utils/logger');
 
-const Category = db.Category; // Updated model name
+const Category = db.Category; 
 
 // Register Category
 const addCategory = async (req, res) => {
@@ -12,7 +13,8 @@ const addCategory = async (req, res) => {
 
         const category = await Category.create(info);
         res.status(200).send(category);
-        console.log(category);
+        logger.info('Category created', { categoryId: category.id });
+
 
     } catch (error) {
 
@@ -21,6 +23,7 @@ const addCategory = async (req, res) => {
             const errors = error.errors.map((err) => err.message);
             res.status(400).send({ error: "Validation error", details: errors });
         } else {
+            logger.error('Failed to register Category', { error: error.message });
             res.status(500).send({ error: "Internal server error" });
         }
     }

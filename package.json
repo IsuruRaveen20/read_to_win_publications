@@ -16,7 +16,7 @@
     "mariadb": "^3.2.0",
     "mysql2": "^3.4.0",
     "nodemon": "^2.0.22",
-    "sequelize": "^6.32.1"
+    "sequelize": "^6.32.1",
+    "winston": "^3.9.0"
   }
-  
 }
