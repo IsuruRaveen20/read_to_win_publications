@@ -27,6 +27,23 @@ router.post('/addBook', bookController.addBook); // Route to add a book
  */
 router.get('/allBooks', bookController.getAllBooks); // Route to get all books
 
+/**
+ * Route: GET /books/:isbnNo
+ * Description: Retrieves a book by ISBN number.
+ * Controller Method: getBookByISBN
+ * Request Params:
+ *   - isbnNo: The ISBN number of the book to search.
+ */
+router.get('/search/:isbnNo', bookController.searchBookByISBN);
+
+
+
+/**
+ * Route: POST /bookId/:like
+ * Description: Like a book.
+ * Controller Method: likeBook
+ */
+router.post("/:bookId/like", bookController.likeBook);
 module.exports = router;
 
 

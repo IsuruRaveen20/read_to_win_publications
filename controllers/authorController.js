@@ -15,10 +15,9 @@ const addAuthor = async (req, res) => {
 
     const author = await Author.create(info);
     res.status(200).send(author);
-    logger.info('Author created', { authorId: author.id });
+    logger.info('Author created', { authorId: author.id, firstName: author.firstName });
 
   } catch (error) {
-
     // Handle validation errors
     if (error.name === "SequelizeValidationError") {
       const errors = error.errors.map((err) => err.message);
@@ -29,6 +28,7 @@ const addAuthor = async (req, res) => {
     }
   }
 };
+
 
 // Get all Authors
 const getAllAuthors = async (req, res) => {
