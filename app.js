@@ -8,8 +8,13 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // routers
-const router = require('./src/routes/authorRoutes')
-app.use('/api/authors', router)
+const authorRouter  = require('./src/routes/authorRoutes')
+const bookRouter  = require('./src/routes/bookRoutes')
+
+//Api
+app.use('/api/authors', authorRouter)
+app.use('/api/books', bookRouter)
+
 
 //port
 const PORT = process.env.PORT || 4000
