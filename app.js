@@ -8,8 +8,8 @@ app.use(express.urlencoded({ extended: true }))
 
 
 // routers
-const authorRouter  = require('./src/routes/authorRoutes')
-const bookRouter  = require('./src/routes/bookRoutes')
+const authorRouter  = require('./routes/authorRoutes')
+const bookRouter  = require('./routes/bookRoutes')
 
 //Api
 app.use('/api/authors', authorRouter)
