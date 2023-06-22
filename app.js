@@ -1,5 +1,6 @@
 const express = require('express');
 const logger = require('./utils/logger');
+const generateReport = require('./report/Report');
 
 require('dotenv').config();
 
@@ -27,6 +28,7 @@ const PORT = process.env.PORT || 4000;
 // Start the server
 app.listen(PORT, () => {
   logger.info(`Server is running on port ${PORT}`);
+  generateReport();
 });
 
 

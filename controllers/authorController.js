@@ -1,7 +1,8 @@
+const { log } = require("winston");
 const db = require("../models");
 const logger = require('../utils/logger');
 
-const Author = db.Author; 
+const Author = db.Author;
 
 // Register Author
 const addAuthor = async (req, res) => {

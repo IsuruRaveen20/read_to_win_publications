@@ -1,6 +1,5 @@
 const dbConfig = require('../config/database');
 const { Sequelize, DataTypes } = require('sequelize');
-const cron = require('node-cron');
 const logger = require('../utils/logger');
 
 // Create a new Sequelize instance with the database configuration
@@ -57,38 +56,5 @@ db.sequelize.sync({ force: false })
     console.log('Re-sync done!');
   });
 
-// Function to generate the report
-const generateReport = async () => {
-  try {
-    // Retrieve all authors with their associated books
-    const authors = await db.Author.findAll({
-      include: {
-        model: db.Book,
-        attributes: ['likeCount']
-      }
-    });
 
-    // Generate the report or log entry
-    const report = authors.map(author => ({
-      authorId: author.id,
-      authorName: `${author.firstName} ${author.lastName}`,
-      likeCount: author.Books.reduce((totalLikes, book) => totalLikes + book.likeCount, 0)
-    }));
-
-    // Output the report or log entry
-    logger.info('Like Count Report', { report });
-
-    // You can also send the report via email or perform any other actions here
-
-  } catch (error) {
-    logger.error('Failed to generate Like Count Report', { error: error.message });
-  }
-};
-
-// Define the cron schedule (runs every 5 minutes)
-cron.schedule('*/5 * * * *', generateReport);
-
-module.exports = {
-  db,
-  generateReport
-};
+module.exports = db;
