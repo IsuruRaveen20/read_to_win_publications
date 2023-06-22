@@ -54,6 +54,37 @@ For each endpoint, replace :bookId with the corresponding ID value.
 ## Generating Like Count Report
 The application automatically generates a like count report for each author every 5 minutes. The report includes the author's ID, name, and total like count for their books. The report can be output to the console, sent via email, or logged.
 
+## Snapshots
+
+![Add Author Screenshot](snapshots/AddAuthor.png)
+
+![Add Book Screenshot](snapshots/AddBook.png)
+
+![Add Category Screenshot](snapshots/AddCategory.png)
+
+![Book Like Screenshot](snapshots/BookLike.png)
+
+![Search Book Screenshot](snapshots/SearchBook.png)
+
+![Book Like Logger Screenshot](snapshots/BookLikeLogger.png)
+
+![Display All Authors Screenshot](snapshots/GetAllAuthors.png)
+
+![Display All Books Screenshot](snapshots/GetAllBooks.png)
+
+![Display All Categories Screenshot](snapshots/GetCategories.png)
+
+![Logger Screenshot](snapshots/Logger.png)
+
+
+
+
+
+
+
+
+
+
 
 
 
