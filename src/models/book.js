@@ -4,7 +4,11 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
+                notNull: {
+                    msg: "ISBN No is required."
+                },
                 isAlphanumeric: {
+                    args: true,
                     msg: "ISBN no should only contain alphanumeric characters.",
                 },
             },
@@ -13,6 +17,9 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
+                notNull: {
+                    msg: "Category is required."
+                },
                 is: {
                     args: /^[A-Za-z\s]+$/, // Allow letters and white spaces
                     msg: "Category should only contain letters.",
@@ -23,8 +30,12 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
             validate: {
-                isAlphanumeric: {
-                    msg: "Title should only contain alphanumeric characters.",
+                notNull: {
+                    msg: "Title is required."
+                },
+                is: {
+                    args: /^[A-Za-z\s]+$/, // Allow letters and white spaces
+                    msg: "Title should only contain letters.",
                 },
             },
         },
