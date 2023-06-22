@@ -40,7 +40,6 @@ const getAllBooks = async (req, res) => {
 };
 
 module.exports = {
-  addBook,
-  getAllBooks,
+  addBook, // Register a Book endpoint
+  getAllBooks, // Get all Books endpoint
 };
-

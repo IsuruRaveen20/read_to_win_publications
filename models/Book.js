@@ -1,4 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
+    // Define the Book model
     const Book = sequelize.define("Book", {
         isbnNo: {
             type: DataTypes.STRING,
@@ -45,6 +46,7 @@ module.exports = (sequelize, DataTypes) => {
         },
     });
 
+    // Define associations with other models
     Book.associate = (models) => {
         Book.belongsTo(models.Author, {
             foreignKey: {

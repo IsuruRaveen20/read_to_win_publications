@@ -1,6 +1,7 @@
 const dbConfig = require('../config/database');
 const { Sequelize, DataTypes } = require('sequelize');
 
+// Create a new Sequelize instance with the database configuration
 const sequelize = new Sequelize(
   dbConfig.DB,
   dbConfig.USER,
@@ -18,6 +19,7 @@ const sequelize = new Sequelize(
   }
 );
 
+// Authenticate the connection to the database
 sequelize
   .authenticate()
   .then(() => {
@@ -33,12 +35,14 @@ db.Sequelize = Sequelize;
 db.sequelize = sequelize;
 
 // Models
+// Import and define the models using sequelize.define()
 db.Author = require('./Author')(sequelize, DataTypes);
 db.Book = require('./Book')(sequelize, DataTypes);
 db.Category = require('./Category')(sequelize, DataTypes);
 db.User = require('./User')(sequelize, DataTypes);
 
 // Associations
+// Define the associations between the models using the appropriate association methods
 db.Author.hasMany(db.Book, { foreignKey: 'authorId' });
 db.Book.belongsTo(db.Author, { foreignKey: 'authorId' });
 db.Book.belongsToMany(db.Category, { through: 'BookCategory' });
